@@ -1,3 +1,21 @@
 <h1>Eat-Da-Burger!</h1>
 
-<h2>hello world</h2>
+<h2>not devoured</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      <p>Name: {{burger_name}}</p>
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>devoured</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      <p>Name: {{burger_name}}</p>
+    {{/if}}
+  {{/each}}
+</ul>
