@@ -1,14 +1,8 @@
 const mysql = require("mysql");
 const fs = require("fs");
+const { connectionForDbInit: connection } = require("../config/connection.js");
 
 function initdb(callback) {
-    const connection = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "password",
-        multipleStatements: true
-    });
-
     connection.connect(function(err) {
         if (err) throw err;
         fs.readFile("db/schema.sql", "utf8", (err, data) => {
