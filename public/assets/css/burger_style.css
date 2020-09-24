@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(245, 237, 122);
+    text-align: center;
+}
+
+h1 {
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    font-size: 20px;
+}
+
+#burger {
+    margin: 0;
+    display: inline;
+}
+
+#element {
+    margin-bottom: 10px;
+}
+
+#burger_img {
+    height: 150px;
+    width: 150;
+    margin-top: 20px;
+}

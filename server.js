@@ -8,6 +8,7 @@ const router = require("./controllers/burgers_controller.js");
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
