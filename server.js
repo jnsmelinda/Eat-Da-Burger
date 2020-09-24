@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require('body-parser');
 const exphbs = require("express-handlebars");
 const initdb = require("./db/db-init");
 const { connection } = require("./config/connection.js");
@@ -7,6 +8,7 @@ const router = require("./controllers/burgers_controller.js");
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.use(router);
