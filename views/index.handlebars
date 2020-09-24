@@ -39,13 +39,12 @@
 <h2>Add a Burger</h2>
 <form class="create-form" action="/index" method="post">
 
-    <div class="form-group">
-        <label for="ca">Burger:</label>
+    <div class="form-group" id="input">
         <input type="text" name="burger_name">
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <p>Enter a burger you want to add and click Submit.</p>
+    <button type="submit" class="btn btn-primary btn-sm" id="submit">Submit</button>
+    <p id="instructions">Enter a burger you want to add and click Submit.</p>
 </form>
 
 <footer class="footer mt-auto py-3">
