@@ -2,7 +2,7 @@ const { connection } = require("./connection.js");
 
 const orm = {
     all: function(tableInput, cb) {
-        var queryString = "SELECT * FROM " + tableInput + ";";
+        let queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
@@ -11,7 +11,7 @@ const orm = {
         });
     },
     create: function(table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table;
+        let queryString = "INSERT INTO " + table;
 
         queryString += " (";
         queryString += cols.toString();
@@ -31,6 +31,23 @@ const orm = {
           cb(result);
         });
     },
+    update: function(table, objColVals, condition, cb) {
+        let queryString = "UPDATE " + table;
+
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+
+        console.log(queryString);
+        connection.query(queryString, function(err, result) {
+        if (err) {
+            throw err;
+        }
+
+        cb(result);
+        });
+    }
 }
 
 function printQuestionMarks(num) {
@@ -41,23 +58,20 @@ function printQuestionMarks(num) {
     return arr.toString();
 }
 
-function selectAll(tableInput, cb) {
-    console.log("select");
-    var queryString = "SELECT * FROM " + tableInput + ";";
-    connection.query(queryString, function(err, result) {
-        if (err) {
-        throw err;
+function objToSql(ob) {
+    var arr = [];
+
+    for (let key in ob) {
+      let value = ob[key];
+      if (Object.hasOwnProperty.call(ob, key)) {
+        if (typeof value === "string" && value.indexOf(" ") >= 0) {
+          value = "'" + value + "'";
         }
-        cb(result);
-    });
-}
+        arr.push(key + "=" + value);
+      }
+    }
 
-function insertOne() {
-    console.log("insert");
-}
-
-function updateOne() {
-    console.log("update");
+    return arr.toString();
 }
 
 module.exports = orm;

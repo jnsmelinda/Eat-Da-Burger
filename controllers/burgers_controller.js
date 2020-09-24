@@ -9,16 +9,23 @@ router.get('/index', function (req, res) {
 
 router.post("/index", function(req, res) {
     console.log(req.body);
-
-    burger.create([
-        "burger_name", "devoured"
-      ], [
-        req.body.burger_name, req.body.devoured
-      ], function(result) {
-        renderBurgers(res);
-    });
+    if (req.body.id == null) {
+        console.log("create " + req.body.burger_name);
+        burger.create(
+            ["burger_name", "devoured"],
+            [req.body.burger_name, false],
+            result => renderBurgers(res)
+        );
+    }
+    else {
+        console.log("update " + req.body.id);
+        burger.update(
+            {devoured: true},
+            `id = ${req.body.id}`,
+            result => renderBurgers(res)
+        );
+    }
 });
-
 
 function renderBurgers(res) {
     burger.all(function(data) {
