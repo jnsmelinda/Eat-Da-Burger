@@ -8,6 +8,10 @@ router.get("/index", function(req, res) {
     renderBurgers(res);
 });
 
+router.get("/", function(req, res) {
+    res.redirect("/index");
+});
+
 router.post("/index", function(req, res) {
     console.log(req.body);
     if (req.body.id == null) {
