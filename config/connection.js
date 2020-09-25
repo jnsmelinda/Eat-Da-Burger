@@ -5,7 +5,7 @@ const connectionConfig = {
     user: "root",
     password: "password",
     database: "burgers_db"
-}
+};
 
 const connection = mysql.createConnection(connectionConfig);
 
@@ -16,4 +16,4 @@ const connectionForDbInit = mysql.createConnection({
     multipleStatements: true
 });
 
-module.exports = { connection, connectionForDbInit };
+module.exports = {connection, connectionForDbInit};

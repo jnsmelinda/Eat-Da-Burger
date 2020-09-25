@@ -1,10 +1,10 @@
-const { connection } = require("./connection.js");
+const {connection} = require("./connection.js");
 
 function selectAll(tableInput, cb) {
-    let queryString = "SELECT * FROM " + tableInput + ";";
+    const queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
         if (err) {
-        throw err;
+            throw err;
         }
         cb(result);
     });
@@ -23,11 +23,11 @@ function insertOne(table, cols, vals, cb) {
     console.log(queryString);
 
     connection.query(queryString, vals, function(err, result) {
-      if (err) {
-          console.log(err);
-        throw err;
-      }
-      cb(result);
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        cb(result);
     });
 }
 
@@ -41,32 +41,33 @@ function updateOne(table, objColVals, condition, cb) {
 
     console.log(queryString);
     connection.query(queryString, function(err, result) {
-    if (err) {
-        throw err;
-    }
-    cb(result);
+        if (err) {
+            throw err;
+        }
+        cb(result);
     });
 }
 
 function printQuestionMarks(num) {
-    let arr = [];
+    const arr = [];
     for (let i = 0; i < num; i++) {
-      arr.push("?");
+        arr.push("?");
     }
     return arr.toString();
 }
 
 function objToSql(ob) {
-    var arr = [];
+    const arr = [];
 
-    for (let key in ob) {
-      let value = ob[key];
-      if (Object.hasOwnProperty.call(ob, key)) {
-        if (typeof value === "string" && value.indexOf(" ") >= 0) {
-          value = "'" + value + "'";
+    // eslint-disable-next-line guard-for-in
+    for (const key in ob) {
+        let value = ob[key];
+        if (Object.hasOwnProperty.call(ob, key)) {
+            if (typeof value === "string" && value.indexOf(" ") >= 0) {
+                value = "'" + value + "'";
+            }
+            arr.push(key + "=" + value);
         }
-        arr.push(key + "=" + value);
-      }
     }
 
     return arr.toString();

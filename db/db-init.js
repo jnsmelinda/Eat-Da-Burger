@@ -1,6 +1,5 @@
-const mysql = require("mysql");
 const fs = require("fs");
-const { connectionForDbInit: connection } = require("../config/connection.js");
+const {connectionForDbInit: connection} = require("../config/connection.js");
 
 function initdb(callback) {
     connection.connect(function(err) {
