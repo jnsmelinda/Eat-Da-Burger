@@ -1,5 +1,5 @@
 const fs = require("fs");
-const {connectionForDbInit: connection} = require("../config/connection.js");
+const {connectionForDbInit: connection, database} = require("../config/connection.js");
 
 function initdb(callback) {
     connection.connect(function(err) {
@@ -7,6 +7,7 @@ function initdb(callback) {
         fs.readFile("db/schema.sql", "utf8", (err, data) => {
             if (err) throw err;
 
+            data = data.replace(/{{DB_NAME}}/g, database);
             connection.query(data, function(err, result) {
                 if (err) throw err;
                 connection.query("SELECT COUNT(*) AS size FROM burgers LIMIT 1", function(err, result) {
