@@ -8,7 +8,7 @@ Eat-Da-Burger! is a restaurant app that lets users input the names of burgers th
 **Author:** Melinda Ivanov
 
 ## Links
-- https://github.com/jnsmelinda/Eat-Da-Burger!
+- https://github.com/jnsmelinda/Eat-Da-Burger
 
 ## Technologies
 - [JavaScript](https://www.javascript.com)
