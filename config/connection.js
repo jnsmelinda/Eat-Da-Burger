@@ -1,11 +1,11 @@
 const mysql = require("mysql");
 
-const database = "burgers_db";
+const database = process.env.BURGER_DB_NAME || "burgers_db";
 
 const connectionConfig = {
-    host: "localhost",
-    user: "root",
-    password: "password",
+    host: process.env.BURGER_DB_HOST || "localhost",
+    user: process.env.BURGER_DB_USER || "root",
+    password: process.env.BURGER_DB_PASSWORD || "password",
     database: database
 };
 
