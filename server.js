@@ -17,7 +17,7 @@ app.use(router);
 function start() {
     connection.connect(function(err) {
         if (err) throw err;
-        console.log("Connected as id " + connection.threadId);
+        console.log("Connected to the DB");
         app.listen(PORT, function() {
             console.log("Server listening on: http://localhost:" + PORT);
         });

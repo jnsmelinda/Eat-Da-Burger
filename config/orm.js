@@ -1,16 +1,14 @@
 const {connection} = require("./connection.js");
 
-function selectAll(tableInput, cb) {
+function selectAll(tableInput, cb, next) {
     const queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
-        if (err) {
-            throw err;
-        }
-        cb(result);
+        if (err) next(err);
+        else cb(result);
     });
 }
 
-function insertOne(table, cols, vals, cb) {
+function insertOne(table, cols, vals, cb, next) {
     let queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -20,18 +18,13 @@ function insertOne(table, cols, vals, cb) {
     queryString += printQuestionMarks(vals.length);
     queryString += "); ";
 
-    console.log(queryString);
-
     connection.query(queryString, vals, function(err, result) {
-        if (err) {
-            console.log(err);
-            throw err;
-        }
-        cb(result);
+        if (err) next(err);
+        else cb(result);
     });
 }
 
-function updateOne(table, objColVals, condition, cb) {
+function updateOne(table, objColVals, condition, cb, next) {
     let queryString = "UPDATE " + table;
 
     queryString += " SET ";
@@ -39,12 +32,9 @@ function updateOne(table, objColVals, condition, cb) {
     queryString += " WHERE ";
     queryString += condition;
 
-    console.log(queryString);
     connection.query(queryString, function(err, result) {
-        if (err) {
-            throw err;
-        }
-        cb(result);
+        if (err) next(err);
+        else cb(result);
     });
 }
 
