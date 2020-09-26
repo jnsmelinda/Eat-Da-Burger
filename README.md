@@ -9,6 +9,7 @@ Eat-Da-Burger! is a restaurant app that lets users input the names of burgers th
 
 ## Links
 - https://github.com/jnsmelinda/Eat-Da-Burger
+- https://lit-mesa-27296.herokuapp.com/index
 
 ## Technologies
 - [JavaScript](https://www.javascript.com)
@@ -32,7 +33,7 @@ You can watch the demo video [here](https://youtu.be/783PBATi0oU).
 ![demo-image](public/assets/img/demo.png)
 
 ## Usage
-The user needs to open the command-line, navigate to the folder, type `node server.js`, and choose from the menu options and follow the steps to enter the company information.
+Visit the heroku link and add a burger to the Reade to eat! section When you feel hungry simply Devour! it. 
 
 ## License
 This repository is protected under the [MIT](https://choosealicense.com/licenses/mit/) license.
