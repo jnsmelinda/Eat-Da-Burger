@@ -33,7 +33,7 @@ You can watch the demo video [here](https://youtu.be/783PBATi0oU).
 ![demo-image](public/assets/img/demo.png)
 
 ## Usage
-Visit the heroku link and add a burger to the Reade to eat! section When you feel hungry simply Devour! it. 
+Visit the heroku link and add a burger to the Ready to eat! section When you feel hungry simply Devour! it. 
 
 ## License
 This repository is protected under the [MIT](https://choosealicense.com/licenses/mit/) license.
