@@ -17,6 +17,10 @@ p {
     font-size: 20px;
 }
 
+footer {
+    color: dark rgb(59, 59, 59);
+}
+
 #burger {
     margin: 0;
     display: inline;
